@@ -1,0 +1,150 @@
+.App {
+  font-family: 'PT Sans Narrow', Arial;
+  margin: 50px;
+}
+
+.title {
+  font-size: 40px;
+  color: #494a4d;
+  text-align: center;
+}
+
+.form {
+  width: 300px;
+  margin: auto;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input:placeholder {
+  font-size: 14px;
+  font-family: 'PT Sans Narrow', Arial;
+
+}
+
+button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: #494a4d;
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'PT Sans Narrow', Arial;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.calendar {
+  margin-top: 50px;
+  display: flex;
+  text-align: left;
+}
+
+.calendar-times {
+  flex-grow: 0;
+  margin-top: -4px;
+  width: 80px;
+  vertical-align: top;
+  text-align: right;
+  margin-right: 10px;
+  font-family: 'PT Sans Narrow', Arial;
+}
+
+.times-hours {
+  font-weight: bold;
+  font-size: 14px;
+  color: #494a4d;
+  line-height: 12px;
+}
+
+.times-hours span {
+    margin-left: 5px;
+    color: #c0c0c0;
+    font-size: 10px;
+}
+
+.times-half {
+  color: #c0c0c0;
+  font-size: 10px;
+  line-height: 8px;
+  margin: 19.5px 0px;
+}
+
+.calendar-container {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid #efefef;
+  border-radius: 1px;
+  position: relative;
+}
+
+.container-hours {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 60px;
+  border-top: 2px solid #efefef;
+  width: 100%;
+}
+
+.container-hours:first-child {
+  border-top: 0px;
+}
+
+.calendar-container-events {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  left: 10px;
+  right: 6px;
+  top: 0px;
+}
+
+.calendar-event {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 9px 17px;
+  position: absolute;
+  width: 100%;
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  border-left: 8px solid #FF7171;
+  overflow: hidden;
+}
+
+.calendar-event h1 {
+  margin: 0px;
+  color: #FF7171;
+  font-size: 15px;
+  font-family: 'PT Sans Narrow', Arial;
+  font-weight: 400;
+}
+
+.calendar-event span {
+  font-size: 12px;
+  color: #c6c6c6;
+  font-family: 'PT Sans Narrow', Arial;
+  font-weight: 400;
+}
+
+section#calendar {
+  font-family: Helvetica, Arial;
+  font-size: 12px;
+  color: #000;
+}

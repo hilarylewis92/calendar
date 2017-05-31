@@ -1,0 +1,23 @@
+{
+  "name": "calendar",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "dependencies": {
+    "dayz": "^0.6.5",
+    "moment": "^2.18.1",
+    "moment-range": "^3.0.3",
+    "react": "^15.5.4",
+    "react-day-calendar": "^1.0.6",
+    "react-day-picker": "^5.5.3",
+    "react-dom": "^15.5.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

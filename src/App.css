@@ -1,17 +1,24 @@
 .App {
   font-family: 'PT Sans Narrow', Arial;
   margin: 50px;
+}
+
+.title {
+  font-size: 40px;
+  color: #494a4d;
   text-align: center;
 }
 
-h1 {
-  font-size: 40px;
-  color: #494a4d;
+.form {
+  width: 300px;
+  margin: auto;
 }
 
 input {
-  margin: 10px;
-  padding: 5px 10px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
 
 input:placeholder {
@@ -21,13 +28,14 @@ input:placeholder {
 }
 
 button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 20px;
+  margin: 8px 0;
   background-color: #494a4d;
   border: none;
   color: white;
-  padding: 10px 25px;
-  text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 14px;
   font-family: 'PT Sans Narrow', Arial;
 }

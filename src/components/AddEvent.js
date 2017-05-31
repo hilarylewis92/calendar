@@ -65,11 +65,20 @@ class AddEvent extends Component {
 
     return (
       <div className="AddEvent">
-        <form>
+        <form className='form'>
           Event: <input
+            placeholder='title of event'
             type='text'
             name='title'
             value={title}
+            onChange={(e) => this.updateState(e)}
+          />
+
+          Location: <input
+            placeholder='location of event'
+            type='text'
+            name='location'
+            value={location}
             onChange={(e) => this.updateState(e)}
           />
 
@@ -85,13 +94,6 @@ class AddEvent extends Component {
             name='end'
             ref='end'
             onChange={(e) => this.convertTime(e)}
-          />
-
-          Location: <input
-            type='text'
-            name='location'
-            value={location}
-            onChange={(e) => this.updateState(e)}
           />
 
           <button

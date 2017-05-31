@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
+import CalendarList from './CalendarList'
 
 class AddEvent extends Component {
   constructor() {
     super()
     this.state = {
       event: '',
-      start: '',
-      end: '',
+      start: 0,
+      end: 0,
       location: '',
       events: []
     }
@@ -14,12 +15,16 @@ class AddEvent extends Component {
 
   saveEvent(e) {
     const { event, start, end, location, events } = this.state
-    const newEvent = { event, start, end, location }
-    debugger
-    events.push(newEvent)
+    let newEvent = events ? events: []
+    newEvent.push({ event, start, end, location })
+    this.setState({
+      events: newEvent
+    })
   }
 
   render() {
+    const { events } = this.state
+
     return (
       <div className="AddEvent">
         Event: <input
@@ -27,12 +32,12 @@ class AddEvent extends Component {
           onChange={(e) => this.setState({event: e.target.value})}
           />
         Start: <input
-          type='text'
-          onChange={(e) => this.setState({start: e.target.value})}
+          type='time'
+          onChange={(e) => this.setState({start: parseInt(e.target.value)})}
         />
         End: <input
-          type='text'
-          onChange={(e) => this.setState({end: e.target.value})}
+          type='time'
+          onChange={(e) => this.setState({end: parseInt(e.target.value)})}
         />
         Location: <input
           type='text'
@@ -42,6 +47,11 @@ class AddEvent extends Component {
           onClick={(e) => this.saveEvent(e)}>
           Save Event
         </button>
+
+        <CalendarList
+          events={events}
+        />
+
       </div>
     );
   }

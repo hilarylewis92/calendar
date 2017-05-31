@@ -6,14 +6,15 @@ class AddEvent extends Component {
     super()
     this.state = {
       title: '',
-      start: 0,
-      end: 0,
+      start: null,
+      end: null,
       location: '',
       events: []
     }
   }
 
   saveEvent(e) {
+    e.preventDefault()
     const { title, start, end, location, events } = this.state
     let newEvent = events ? events: []
     newEvent.push({ title, start, end, location })
@@ -24,10 +25,13 @@ class AddEvent extends Component {
   }
 
   clearInput() {
+    this.refs.start.value = ''
+    this.refs.end.value = ''
+
     this.setState({
       title: '',
-      start: '',
-      end: '',
+      start: null,
+      end: null,
       location: ''
     })
   }
@@ -57,34 +61,36 @@ class AddEvent extends Component {
 
     return (
       <div className="AddEvent">
-        Event: <input
-          type='text'
-          name='title'
-          value={title}
-          onChange={(e) => this.updateState(e)}
+        <form>
+          Event: <input
+            type='text'
+            name='title'
+            value={title}
+            onChange={(e) => this.updateState(e)}
+            />
+          Start: <input
+            type='time'
+            name='start'
+            ref='start'
+            onChange={(e) => this.convertTime(e)}
           />
-        Start: <input
-          type='time'
-          name='start'
-          value={start}
-          onChange={(e) => this.convertTime(e)}
-        />
-        End: <input
-          type='time'
-          name='end'
-          onChange={(e) => this.convertTime(e)}
-        />
-        Location: <input
-          type='text'
-          name='location'
-          value={location}
-          onChange={(e) => this.updateState(e)}
-        />
-        <button
-          onClick={(e) => this.saveEvent(e)}>
-          Save Event
-        </button>
-
+          End: <input
+            type='time'
+            name='end'
+            ref='end'
+            onChange={(e) => this.convertTime(e)}
+          />
+          Location: <input
+            type='text'
+            name='location'
+            value={location}
+            onChange={(e) => this.updateState(e)}
+          />
+          <button
+            onClick={(e) => this.saveEvent(e)}>
+            Save Event
+          </button>
+        </form>
         <CalendarList
           events={events}
         />

@@ -5,7 +5,7 @@ class AddEvent extends Component {
   constructor() {
     super()
     this.state = {
-      event: '',
+      title: '',
       start: 0,
       end: 0,
       location: '',
@@ -14,11 +14,21 @@ class AddEvent extends Component {
   }
 
   saveEvent(e) {
-    const { event, start, end, location, events } = this.state
+    const { title, start, end, location, events } = this.state
     let newEvent = events ? events: []
-    newEvent.push({ event, start, end, location })
+    newEvent.push({ title, start, end, location })
     this.setState({
       events: newEvent
+    })
+    this.clearInput()
+  }
+
+  clearInput() {
+    this.setState({
+      title: '',
+      start: 0,
+      end: 0,
+      location: ''
     })
   }
 
@@ -29,7 +39,8 @@ class AddEvent extends Component {
       <div className="AddEvent">
         Event: <input
           type='text'
-          onChange={(e) => this.setState({event: e.target.value})}
+          value={this.state.title}
+          onChange={(e) => this.setState({title: e.target.value})}
           />
         Start: <input
           type='time'
@@ -41,6 +52,7 @@ class AddEvent extends Component {
         />
         Location: <input
           type='text'
+          value={this.state.location}
           onChange={(e) => this.setState({location: e.target.value})}
         />
         <button

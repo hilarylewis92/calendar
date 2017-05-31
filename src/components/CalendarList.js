@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import CalendarComponent from 'react-day-calendar';
 
 class CalendarList extends Component {
-  renderEvents() {
-
-  }
-
   render() {
     const { events } = this.props
 

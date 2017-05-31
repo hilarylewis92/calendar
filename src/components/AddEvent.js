@@ -26,33 +26,35 @@ class AddEvent extends Component {
   clearInput() {
     this.setState({
       title: '',
-      start: 0,
-      end: 0,
+      start: '',
+      end: '',
       location: ''
     })
   }
 
   render() {
-    const { events } = this.state
+    const { events, title, start, end, location } = this.state
 
     return (
       <div className="AddEvent">
         Event: <input
           type='text'
-          value={this.state.title}
+          value={title}
           onChange={(e) => this.setState({title: e.target.value})}
           />
         Start: <input
           type='time'
-          onChange={(e) => this.setState({start: parseInt(e.target.value)})}
+          value={start}
+          onChange={(e) => this.setState({start: e.target.value})}
         />
         End: <input
           type='time'
-          onChange={(e) => this.setState({end: parseInt(e.target.value)})}
+          value={end}
+          onChange={(e) => this.setState({end: e.target.value})}
         />
         Location: <input
           type='text'
-          value={this.state.location}
+          value={location}
           onChange={(e) => this.setState({location: e.target.value})}
         />
         <button

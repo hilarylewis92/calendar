@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import CalendarList from './CalendarList'
 
 class AddEvent extends Component {
@@ -15,12 +15,16 @@ class AddEvent extends Component {
 
   saveEvent(e) {
     e.preventDefault()
+
     const { title, start, end, location, events } = this.state
     let newEvent = events ? events: []
+
     newEvent.push({ title, start, end, location })
+
     this.setState({
       events: newEvent
     })
+
     this.clearInput()
   }
 
@@ -39,8 +43,8 @@ class AddEvent extends Component {
   convertTime(e) {
     const { value, name } = e.target
     let hoursMinutes = value.split(/[.:]/)
-    let hours = parseInt(hoursMinutes[0], 10);
-    let minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+    let hours = parseInt(hoursMinutes[0], 10)
+    let minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0
     let time = hours * 60 + minutes
 
     this.setState({
@@ -57,7 +61,7 @@ class AddEvent extends Component {
   }
 
   render() {
-    const { events, title, start, end, location } = this.state
+    const { events, start, end, title, location } = this.state
 
     return (
       <div className="AddEvent">
@@ -67,37 +71,43 @@ class AddEvent extends Component {
             name='title'
             value={title}
             onChange={(e) => this.updateState(e)}
-            />
+          />
+
           Start: <input
             type='time'
             name='start'
             ref='start'
             onChange={(e) => this.convertTime(e)}
           />
+
           End: <input
             type='time'
             name='end'
             ref='end'
             onChange={(e) => this.convertTime(e)}
           />
+
           Location: <input
             type='text'
             name='location'
             value={location}
             onChange={(e) => this.updateState(e)}
           />
+
           <button
+            disabled={!title || !start || !end || !location}
             onClick={(e) => this.saveEvent(e)}>
             Save Event
           </button>
         </form>
+
         <CalendarList
           events={events}
         />
 
       </div>
-    );
+    )
   }
 }
 
-export default AddEvent;
+export default AddEvent

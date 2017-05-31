@@ -32,6 +32,15 @@ class AddEvent extends Component {
     })
   }
 
+  convertTime(e) {
+    const { value } = e.target
+    let hoursMinutes = value.split(/[.:]/)
+    let hours = parseInt(hoursMinutes[0], 10);
+    let minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+    debugger
+    return hours + minutes
+  }
+
   render() {
     const { events, title, start, end, location } = this.state
 
@@ -44,13 +53,11 @@ class AddEvent extends Component {
           />
         Start: <input
           type='time'
-          value={start}
-          onChange={(e) => this.setState({start: e.target.value})}
+          onChange={(e) => this.convertTime(e)}
         />
         End: <input
           type='time'
-          value={end}
-          onChange={(e) => this.setState({end: e.target.value})}
+          onChange={(e) => this.setState({end: parseInt(e.target.value)})}
         />
         Location: <input
           type='text'

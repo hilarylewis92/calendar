@@ -7,10 +7,18 @@ class CalendarList extends Component {
 
     return (
       <div className="CalendarList">
-        <CalendarComponent start={9} end={21} events={events}/>
+
+        <CalendarComponent start={1} end={24} events={[
+            {start: 30, end: 150, title: 'Event 1', location: 'Barcelona'},
+            {start: 540, end: 600, title: 'Event 2', location: 'Munich'},
+            {start: 560, end: 620, title: 'Event 3', location: 'Berlin'},
+            {start: 710, end: 1070, title: 'Event 4', location: 'London'}
+        ]}/>
       </div>
     );
   }
 }
 
 export default CalendarList;
+
+// <CalendarComponent start={9} end={21} events={events}/>

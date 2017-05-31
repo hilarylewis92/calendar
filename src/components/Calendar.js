@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CalendarComponent from 'react-day-calendar';
 import AddEvent from './AddEvent'
 
 class Calendar extends Component {
